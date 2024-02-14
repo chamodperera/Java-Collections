@@ -73,4 +73,9 @@ public class RandomGenerator {
         return null; // Or throw an exception if neither is initialized
     }
 
+    public static int randomInt(int range) {
+        Random random = new Random();
+        return random.nextInt(range);
+    }
+
 }
