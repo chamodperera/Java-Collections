@@ -180,60 +180,70 @@ public class Main {
         System.out.println("Contains: " + arrayListContainsExecTime);
         System.out.println("Remove: " + arrayListRemoveExecTime);
         System.out.println("Clear: " + arrayListClearExecTime);
+        System.out.println("");
 
         System.out.println("LinkedList");
         System.out.println("Add: " + linkedListAddExecTime);
         System.out.println("Contains: " + linkedListContainsExecTime);
         System.out.println("Remove: " + linkedListRemoveExecTime);
         System.out.println("Clear: " + linkedListClearExecTime);
+        System.out.println("");
 
         System.out.println("HashSet");
         System.out.println("Add: " + hashSetAddExecTime);
         System.out.println("Contains: " + hashSetContainsExecTime);
         System.out.println("Remove: " + hashSetRemoveExecTime);
         System.out.println("Clear: " + hashSetClearExecTime);
+        System.out.println("");
         
         System.out.println("TreeSet");
         System.out.println("Add: " + treeSetAddExecTime);
         System.out.println("Contains: " + treeSetContainsExecTime);
         System.out.println("Remove: " + treeSetRemoveExecTime);
         System.out.println("Clear: " + treeSetClearExecTime);
+        System.out.println("");
 
         System.out.println("LinkedHashSet");
         System.out.println("Add: " + linkedHashSetAddExecTime);
         System.out.println("Contains: " + linkedHashSetContainsExecTime);
         System.out.println("Remove: " + linkedHashSetRemoveExecTime);
         System.out.println("Clear: " + linkedHashSetClearExecTime);
+        System.out.println("");
 
         System.out.println("ArrayDeque");
         System.out.println("Add: " + arrayDequeAddExecTime);
         System.out.println("Contains: " + arrayDequeContainsExecTime);
         System.out.println("Remove: " + arrayDequeRemoveExecTime);
         System.out.println("Clear: " + arrayDequeClearExecTime);
+        System.out.println("");
 
         System.out.println("PriorityQueue");
         System.out.println("Add: " + priorityQueueAddExecTime);
         System.out.println("Contains: " + priorityQueueContainsExecTime);
         System.out.println("Remove: " + priorityQueueRemoveExecTime);
         System.out.println("Clear: " + priorityQueueClearExecTime);
+        System.out.println("");
 
         System.out.println("HashMap");
         System.out.println("Add: " + hashMapAddExecTime);
         System.out.println("Contains: " + hashMapContainsExecTime);
         System.out.println("Remove: " + hashMapRemoveExecTime);
         System.out.println("Clear: " + hashMapClearExecTime);
+        System.out.println("");
 
         System.out.println("TreeMap");
         System.out.println("Add: " + treeMapAddExecTime);
         System.out.println("Contains: " + treeMapContainsExecTime);
         System.out.println("Remove: " + treeMapRemoveExecTime);
         System.out.println("Clear: " + treeMapClearExecTime);
+        System.out.println("");
 
         System.out.println("LinkedHashMap");
         System.out.println("Add: " + linkedHashMapAddExecTime);
         System.out.println("Contains: " + linkedHashMapContainsExecTime);
         System.out.println("Remove: " + linkedHashMapRemoveExecTime);
         System.out.println("Clear: " + linkedHashMapClearExecTime);
+        System.out.println("");
     
 
         }
