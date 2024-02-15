@@ -1,8 +1,12 @@
 package Timer.Interfaces;
 
+import java.util.function.Supplier;
 
 public interface TimerInterface<T> {
-    Runnable execAdd(); 
+    Supplier<Long> execAdd(); 
+    Supplier<Long> execContains();
+    Supplier<Long> execRemove();
+    Supplier<Long> execClear();
     
-    long avgExecTime(Runnable action);
+    long avgExecTime(Supplier<Long> action);
 }

@@ -1,5 +1,7 @@
 package Timer;
 
+import java.util.function.Supplier;
+
 import Timer.Interfaces.TimerInterface;
 
 public abstract class Timer<T> implements TimerInterface<T> {
@@ -11,13 +13,11 @@ public abstract class Timer<T> implements TimerInterface<T> {
         this.avg = 100;
     }
 
-    public long avgExecTime(Runnable action) {
+    public long avgExecTime(Supplier<Long> action) {
         long execTime = 0;
         for (int i = 0; i < this.avg; i++) {
-            long start = System.nanoTime();
-            action.run();
-            long end = System.nanoTime();
-            execTime += end - start;
+            Long time = action.get();
+            execTime += time;
         }
         return execTime / this.avg;
     }
