@@ -14,7 +14,7 @@ public class CollectionRandomGenerator extends RandomGenerator<Collection<Intege
     @Override
     public void generate() {
         while (collection.size() < this.length) {
-            this.collection.add(random.nextInt(this.range));
+            this.collection.add(this.random.nextInt(this.range));
         }
     }
 

@@ -15,6 +15,55 @@ import Timer.Timers.*;
 public class Main {
 
     public static void main (String args[]){
+
+         //HashSet
+         HashSet<Integer> hashSet = new HashSet<Integer>();
+         HashSet<Integer> tempHashSet = new HashSet<Integer>();
+ 
+         CollectionRandomGenerator generatorHashSet = new CollectionRandomGenerator(100000, 100000, hashSet);
+         HashSet<Integer> randomHashSet = (HashSet<Integer>) generatorHashSet.getObject();
+         tempHashSet.addAll(randomHashSet);
+ 
+         TimerCollections timerHashSet = new TimerCollections(100000, randomHashSet,tempHashSet);
+ 
+         Long hashSetAddExecTime = timerHashSet.avgExecTime("add");
+         Long hashSetContainsExecTime = timerHashSet.avgExecTime("contains");
+         Long hashSetRemoveExecTime = timerHashSet.avgExecTime("remove");
+         Long hashSetClearExecTime = timerHashSet.avgExecTime("clear");
+ 
+ 
+         //TreeSet
+         TreeSet<Integer> treeSet = new TreeSet<Integer>();
+         TreeSet<Integer> tempTreeSet = new TreeSet<Integer>();
+ 
+         CollectionRandomGenerator generatorTreeSet = new CollectionRandomGenerator(100000, 100000, treeSet);
+         TreeSet<Integer> randomTreeSet = (TreeSet<Integer>) generatorTreeSet.getObject();
+         tempTreeSet.addAll(randomTreeSet);
+ 
+         TimerCollections timerTreeSet = new TimerCollections(100000, randomTreeSet,tempTreeSet);
+ 
+         Long treeSetAddExecTime = timerTreeSet.avgExecTime("add");
+         Long treeSetContainsExecTime = timerTreeSet.avgExecTime("contains");
+         Long treeSetRemoveExecTime = timerTreeSet.avgExecTime("remove");
+         Long treeSetClearExecTime = timerTreeSet.avgExecTime("clear");
+        
+        
+        //LinkedHashSet
+        LinkedHashSet<Integer> linkedHashSet = new LinkedHashSet<Integer>();
+        LinkedHashSet<Integer> tempLinkedHashSet = new LinkedHashSet<Integer>();
+
+        CollectionRandomGenerator generatorLinkedHashSet = new CollectionRandomGenerator(100000, 100000, linkedHashSet);
+        LinkedHashSet<Integer> randomLinkedHashSet = (LinkedHashSet<Integer>) generatorLinkedHashSet.getObject();
+        tempLinkedHashSet.addAll(randomLinkedHashSet);
+
+        TimerCollections timerLinkedHashSet = new TimerCollections(100000, randomLinkedHashSet,tempLinkedHashSet);
+
+        Long linkedHashSetAddExecTime = timerLinkedHashSet.avgExecTime("add");
+        Long linkedHashSetContainsExecTime = timerLinkedHashSet.avgExecTime("contains");
+        Long linkedHashSetRemoveExecTime = timerLinkedHashSet.avgExecTime("remove");
+        Long linkedHashSetClearExecTime = timerLinkedHashSet.avgExecTime("clear");
+
+
         //ArrayList
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
         ArrayList<Integer> tempArrayList = new ArrayList<Integer>();
@@ -25,10 +74,10 @@ public class Main {
 
         TimerCollections timerArrayList = new TimerCollections(100000, randomArrayList,tempArrayList);
 
-        Long arrayListAddExecTime = timerArrayList.avgExecTime(timerArrayList.execAdd());
-        Long arrayListContainsExecTime = timerArrayList.avgExecTime(timerArrayList.execContains());
-        Long arrayListRemoveExecTime = timerArrayList.avgExecTime(timerArrayList.execRemove());
-        Long arrayListClearExecTime = timerArrayList.avgExecTime(timerArrayList.execClear());
+        Long arrayListAddExecTime = timerArrayList.avgExecTime("add");
+        Long arrayListContainsExecTime = timerArrayList.avgExecTime("contains");
+        Long arrayListRemoveExecTime = timerArrayList.avgExecTime("remove");
+        Long arrayListClearExecTime = timerArrayList.avgExecTime("clear");
 
 
         //LinkedList
@@ -41,58 +90,10 @@ public class Main {
 
         TimerCollections timerLinkedList = new TimerCollections(100000, randomLinkedList,tempLinkedList);
 
-        Long linkedListAddExecTime = timerLinkedList.avgExecTime(timerLinkedList.execAdd());
-        Long linkedListContainsExecTime = timerLinkedList.avgExecTime(timerLinkedList.execContains());
-        Long linkedListRemoveExecTime = timerLinkedList.avgExecTime(timerLinkedList.execRemove());
-        Long linkedListClearExecTime = timerLinkedList.avgExecTime(timerLinkedList.execClear());
-
-
-        //HashSet
-        HashSet<Integer> hashSet = new HashSet<Integer>();
-        HashSet<Integer> tempHashSet = new HashSet<Integer>();
-
-        CollectionRandomGenerator generatorHashSet = new CollectionRandomGenerator(100000, 100000, hashSet);
-        HashSet<Integer> randomHashSet = (HashSet<Integer>) generatorHashSet.getObject();
-        tempHashSet.addAll(randomHashSet);
-
-        TimerCollections timerHashSet = new TimerCollections(100000, randomHashSet,tempHashSet);
-
-        Long hashSetAddExecTime = timerHashSet.avgExecTime(timerHashSet.execAdd());
-        Long hashSetContainsExecTime = timerHashSet.avgExecTime(timerHashSet.execContains());
-        Long hashSetRemoveExecTime = timerHashSet.avgExecTime(timerHashSet.execRemove());
-        Long hashSetClearExecTime = timerHashSet.avgExecTime(timerHashSet.execClear());
-
-
-        //TreeSet
-        TreeSet<Integer> treeSet = new TreeSet<Integer>();
-        TreeSet<Integer> tempTreeSet = new TreeSet<Integer>();
-
-        CollectionRandomGenerator generatorTreeSet = new CollectionRandomGenerator(100000, 100000, treeSet);
-        TreeSet<Integer> randomTreeSet = (TreeSet<Integer>) generatorTreeSet.getObject();
-        tempTreeSet.addAll(randomTreeSet);
-
-        TimerCollections timerTreeSet = new TimerCollections(100000, randomTreeSet,tempTreeSet);
-
-        Long treeSetAddExecTime = timerTreeSet.avgExecTime(timerTreeSet.execAdd());
-        Long treeSetContainsExecTime = timerTreeSet.avgExecTime(timerTreeSet.execContains());
-        Long treeSetRemoveExecTime = timerTreeSet.avgExecTime(timerTreeSet.execRemove());
-        Long treeSetClearExecTime = timerTreeSet.avgExecTime(timerTreeSet.execClear());
-
-
-        //LinkedHashSet
-        LinkedHashSet<Integer> linkedHashSet = new LinkedHashSet<Integer>();
-        LinkedHashSet<Integer> tempLinkedHashSet = new LinkedHashSet<Integer>();
-
-        CollectionRandomGenerator generatorLinkedHashSet = new CollectionRandomGenerator(100000, 100000, linkedHashSet);
-        LinkedHashSet<Integer> randomLinkedHashSet = (LinkedHashSet<Integer>) generatorLinkedHashSet.getObject();
-        tempLinkedHashSet.addAll(randomLinkedHashSet);
-
-        TimerCollections timerLinkedHashSet = new TimerCollections(100000, randomLinkedHashSet,tempLinkedHashSet);
-
-        Long linkedHashSetAddExecTime = timerLinkedHashSet.avgExecTime(timerLinkedHashSet.execAdd());
-        Long linkedHashSetContainsExecTime = timerLinkedHashSet.avgExecTime(timerLinkedHashSet.execContains());
-        Long linkedHashSetRemoveExecTime = timerLinkedHashSet.avgExecTime(timerLinkedHashSet.execRemove());
-        Long linkedHashSetClearExecTime = timerLinkedHashSet.avgExecTime(timerLinkedHashSet.execClear());
+        Long linkedListAddExecTime = timerLinkedList.avgExecTime("add");
+        Long linkedListContainsExecTime = timerLinkedList.avgExecTime("contains");
+        Long linkedListRemoveExecTime = timerLinkedList.avgExecTime("remove");
+        Long linkedListClearExecTime = timerLinkedList.avgExecTime("clear");
 
 
         //ArrayDeque
@@ -105,10 +106,10 @@ public class Main {
 
         TimerCollections timerArrayDeque = new TimerCollections(100000, randomArrayDeque,tempArrayDeque);
 
-        Long arrayDequeAddExecTime = timerArrayDeque.avgExecTime(timerArrayDeque.execAdd());
-        Long arrayDequeContainsExecTime = timerArrayDeque.avgExecTime(timerArrayDeque.execContains());
-        Long arrayDequeRemoveExecTime = timerArrayDeque.avgExecTime(timerArrayDeque.execRemove());
-        Long arrayDequeClearExecTime = timerArrayDeque.avgExecTime(timerArrayDeque.execClear());
+        Long arrayDequeAddExecTime = timerArrayDeque.avgExecTime("add");
+        Long arrayDequeContainsExecTime = timerArrayDeque.avgExecTime("contains");
+        Long arrayDequeRemoveExecTime = timerArrayDeque.avgExecTime("remove");
+        Long arrayDequeClearExecTime = timerArrayDeque.avgExecTime("clear");
 
 
         //PriorityQueue
@@ -121,10 +122,10 @@ public class Main {
 
         TimerCollections timerPriorityQueue = new TimerCollections(100000, randomPriorityQueue,tempPriorityQueue);
 
-        Long priorityQueueAddExecTime = timerPriorityQueue.avgExecTime(timerPriorityQueue.execAdd());
-        Long priorityQueueContainsExecTime = timerPriorityQueue.avgExecTime(timerPriorityQueue.execContains());
-        Long priorityQueueRemoveExecTime = timerPriorityQueue.avgExecTime(timerPriorityQueue.execRemove());
-        Long priorityQueueClearExecTime = timerPriorityQueue.avgExecTime(timerPriorityQueue.execClear());
+        Long priorityQueueAddExecTime = timerPriorityQueue.avgExecTime("add");
+        Long priorityQueueContainsExecTime = timerPriorityQueue.avgExecTime("contains");
+        Long priorityQueueRemoveExecTime = timerPriorityQueue.avgExecTime("remove");
+        Long priorityQueueClearExecTime = timerPriorityQueue.avgExecTime("clear");
 
 
         //HashMap
@@ -137,10 +138,10 @@ public class Main {
 
         TimerMaps timerHashMap = new TimerMaps(100000, randomHashMap,tempHashMap);
 
-        Long hashMapAddExecTime = timerHashMap.avgExecTime(timerHashMap.execAdd());
-        Long hashMapContainsExecTime = timerHashMap.avgExecTime(timerHashMap.execContains());
-        Long hashMapRemoveExecTime = timerHashMap.avgExecTime(timerHashMap.execRemove());
-        Long hashMapClearExecTime = timerHashMap.avgExecTime(timerHashMap.execClear());
+        Long hashMapAddExecTime = timerHashMap.avgExecTime("add");
+        Long hashMapContainsExecTime = timerHashMap.avgExecTime("contains");
+        Long hashMapRemoveExecTime = timerHashMap.avgExecTime("remove");
+        Long hashMapClearExecTime = timerHashMap.avgExecTime("clear");
 
 
         //TreeMap
@@ -153,10 +154,10 @@ public class Main {
 
         TimerMaps timerTreeMap = new TimerMaps(100000, randomTreeMap,tempTreeMap);
 
-        Long treeMapAddExecTime = timerTreeMap.avgExecTime(timerTreeMap.execAdd());
-        Long treeMapContainsExecTime = timerTreeMap.avgExecTime(timerTreeMap.execContains());
-        Long treeMapRemoveExecTime = timerTreeMap.avgExecTime(timerTreeMap.execRemove());
-        Long treeMapClearExecTime = timerTreeMap.avgExecTime(timerTreeMap.execClear());
+        Long treeMapAddExecTime = timerTreeMap.avgExecTime("add");
+        Long treeMapContainsExecTime = timerTreeMap.avgExecTime("contains");
+        Long treeMapRemoveExecTime = timerTreeMap.avgExecTime("remove");
+        Long treeMapClearExecTime = timerTreeMap.avgExecTime("clear");
 
 
         //LinkedHashMap
@@ -169,10 +170,10 @@ public class Main {
 
         TimerMaps timerLinkedHashMap = new TimerMaps(100000, randomLinkedHashMap,tempLinkedHashMap);
 
-        Long linkedHashMapAddExecTime = timerLinkedHashMap.avgExecTime(timerLinkedHashMap.execAdd());
-        Long linkedHashMapContainsExecTime = timerLinkedHashMap.avgExecTime(timerLinkedHashMap.execContains());
-        Long linkedHashMapRemoveExecTime = timerLinkedHashMap.avgExecTime(timerLinkedHashMap.execRemove());
-        Long linkedHashMapClearExecTime = timerLinkedHashMap.avgExecTime(timerLinkedHashMap.execClear());
+        Long linkedHashMapAddExecTime = timerLinkedHashMap.avgExecTime("add");
+        Long linkedHashMapContainsExecTime = timerLinkedHashMap.avgExecTime("contains");
+        Long linkedHashMapRemoveExecTime = timerLinkedHashMap.avgExecTime("remove");
+        Long linkedHashMapClearExecTime = timerLinkedHashMap.avgExecTime("clear");
 
 
         System.out.println("ArrayList");

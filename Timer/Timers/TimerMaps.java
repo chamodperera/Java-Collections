@@ -1,7 +1,6 @@
 package Timer.Timers;
 
 import java.util.Map;
-import java.util.function.Supplier;
 
 import Generator.utils.GeneratorUtils;
 import Timer.Timer;
@@ -17,55 +16,55 @@ public class TimerMaps extends Timer<Map<Integer,Integer>>{
     }
 
     @Override
-    public Supplier<Long> execAdd() {
+    public Long execAdd() {
         this.map.clear();
         this.map.putAll(this.tempMap);
+        int key = this.map.size() + GeneratorUtils.randomInt(this.range);
+        int value = GeneratorUtils.randomInt(this.range);
 
-        return () -> {
-            long startTime = System.nanoTime();
-            this.map.put(this.map.size() + GeneratorUtils.randomInt(this.range), GeneratorUtils.randomInt(this.range));
-            long endTime = System.nanoTime();
-
-            return endTime - startTime;
-        };
-    }
-
-    @Override
-    public Supplier<Long> execContains() {
-        return () -> {
-            long startTime = System.nanoTime();
-            this.map.containsKey(GeneratorUtils.randomInt(this.range));
-            long endTime = System.nanoTime();
-
-            return endTime - startTime;
-        };
-    }
-
-    @Override
-    public Supplier<Long> execRemove() {
-        this.map.clear();
-        this.map.putAll(this.tempMap);
         
-        return () -> {
-            long startTime = System.nanoTime();
-            this.map.remove(GeneratorUtils.randomInt(this.range));
-            long endTime = System.nanoTime();
+        long startTime = System.nanoTime();
+        this.map.put(key, value);
+        long endTime = System.nanoTime();
 
-            return endTime - startTime;
-        };
+        return endTime - startTime;
+        
     }
 
     @Override
-    public Supplier<Long> execClear() {
-        return () -> {
-            long startTime = System.nanoTime();
-            this.map.clear();
-            long endTime = System.nanoTime();
-            
-            this.map.putAll(this.tempMap);
+    public Long execContains() {
+        int value = GeneratorUtils.randomInt(this.range);
 
-            return endTime - startTime;
-        };
+        long startTime = System.nanoTime();
+        this.map.containsValue(value);
+        long endTime = System.nanoTime();
+
+        return endTime - startTime;
+    }
+
+    @Override
+    public Long execRemove() {
+        this.map.clear();
+        this.map.putAll(this.tempMap);
+        int element = GeneratorUtils.randomInt(this.range);
+       
+        long startTime = System.nanoTime();
+        this.map.remove(element);
+        long endTime = System.nanoTime();
+
+        return endTime - startTime;
+    }
+
+    @Override
+    public Long execClear() {
+
+        long startTime = System.nanoTime();
+        this.map.clear();
+        long endTime = System.nanoTime();
+        
+        this.map.putAll(this.tempMap);
+
+        return endTime - startTime;
     }
 
     
