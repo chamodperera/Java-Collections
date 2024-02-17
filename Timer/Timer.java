@@ -11,6 +11,7 @@ public abstract class Timer<T> implements TimerInterface<T> {
         this.avg = 100;
     }
 
+    @Override
     public long avgExecTime(String action) {
         long execTime = 0;
         for (int i = 0; i < this.avg; i++) {

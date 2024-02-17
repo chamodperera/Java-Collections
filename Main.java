@@ -9,6 +9,9 @@ import java.util.PriorityQueue;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import Generator.generators.*;
 import Timer.Timers.*;
 
@@ -176,75 +179,27 @@ public class Main {
         Long linkedHashMapClearExecTime = timerLinkedHashMap.avgExecTime("clear");
 
 
-        System.out.println("ArrayList");
-        System.out.println("Add: " + arrayListAddExecTime);
-        System.out.println("Contains: " + arrayListContainsExecTime);
-        System.out.println("Remove: " + arrayListRemoveExecTime);
-        System.out.println("Clear: " + arrayListClearExecTime);
-        System.out.println("");
-
-        System.out.println("LinkedList");
-        System.out.println("Add: " + linkedListAddExecTime);
-        System.out.println("Contains: " + linkedListContainsExecTime);
-        System.out.println("Remove: " + linkedListRemoveExecTime);
-        System.out.println("Clear: " + linkedListClearExecTime);
-        System.out.println("");
-
-        System.out.println("HashSet");
-        System.out.println("Add: " + hashSetAddExecTime);
-        System.out.println("Contains: " + hashSetContainsExecTime);
-        System.out.println("Remove: " + hashSetRemoveExecTime);
-        System.out.println("Clear: " + hashSetClearExecTime);
-        System.out.println("");
-        
-        System.out.println("TreeSet");
-        System.out.println("Add: " + treeSetAddExecTime);
-        System.out.println("Contains: " + treeSetContainsExecTime);
-        System.out.println("Remove: " + treeSetRemoveExecTime);
-        System.out.println("Clear: " + treeSetClearExecTime);
-        System.out.println("");
-
-        System.out.println("LinkedHashSet");
-        System.out.println("Add: " + linkedHashSetAddExecTime);
-        System.out.println("Contains: " + linkedHashSetContainsExecTime);
-        System.out.println("Remove: " + linkedHashSetRemoveExecTime);
-        System.out.println("Clear: " + linkedHashSetClearExecTime);
-        System.out.println("");
-
-        System.out.println("ArrayDeque");
-        System.out.println("Add: " + arrayDequeAddExecTime);
-        System.out.println("Contains: " + arrayDequeContainsExecTime);
-        System.out.println("Remove: " + arrayDequeRemoveExecTime);
-        System.out.println("Clear: " + arrayDequeClearExecTime);
-        System.out.println("");
-
-        System.out.println("PriorityQueue");
-        System.out.println("Add: " + priorityQueueAddExecTime);
-        System.out.println("Contains: " + priorityQueueContainsExecTime);
-        System.out.println("Remove: " + priorityQueueRemoveExecTime);
-        System.out.println("Clear: " + priorityQueueClearExecTime);
-        System.out.println("");
-
-        System.out.println("HashMap");
-        System.out.println("Add: " + hashMapAddExecTime);
-        System.out.println("Contains: " + hashMapContainsExecTime);
-        System.out.println("Remove: " + hashMapRemoveExecTime);
-        System.out.println("Clear: " + hashMapClearExecTime);
-        System.out.println("");
-
-        System.out.println("TreeMap");
-        System.out.println("Add: " + treeMapAddExecTime);
-        System.out.println("Contains: " + treeMapContainsExecTime);
-        System.out.println("Remove: " + treeMapRemoveExecTime);
-        System.out.println("Clear: " + treeMapClearExecTime);
-        System.out.println("");
-
-        System.out.println("LinkedHashMap");
-        System.out.println("Add: " + linkedHashMapAddExecTime);
-        System.out.println("Contains: " + linkedHashMapContainsExecTime);
-        System.out.println("Remove: " + linkedHashMapRemoveExecTime);
-        System.out.println("Clear: " + linkedHashMapClearExecTime);
-        System.out.println("");
+        try (FileWriter writer = new FileWriter("Out/data_structure_performance.csv")) {
+            // Write the header line
+            writer.append("Data Structure,Add,Contains,Remove,Clear\n");
+            
+            // Write the data lines using %d for long integers
+            writer.append(String.format("ArrayList,%d,%d,%d,%d\n", arrayListAddExecTime, arrayListContainsExecTime, arrayListRemoveExecTime, arrayListClearExecTime));
+            writer.append(String.format("LinkedList,%d,%d,%d,%d\n", linkedListAddExecTime, linkedListContainsExecTime, linkedListRemoveExecTime, linkedListClearExecTime));
+            writer.append(String.format("HashSet,%d,%d,%d,%d\n", hashSetAddExecTime, hashSetContainsExecTime, hashSetRemoveExecTime, hashSetClearExecTime));
+            writer.append(String.format("TreeSet,%d,%d,%d,%d\n", treeSetAddExecTime, treeSetContainsExecTime, treeSetRemoveExecTime, treeSetClearExecTime));
+            writer.append(String.format("LinkedHashSet,%d,%d,%d,%d\n", linkedHashSetAddExecTime, linkedHashSetContainsExecTime, linkedHashSetRemoveExecTime, linkedHashSetClearExecTime));
+            writer.append(String.format("ArrayDeque,%d,%d,%d,%d\n", arrayDequeAddExecTime, arrayDequeContainsExecTime, arrayDequeRemoveExecTime, arrayDequeClearExecTime));
+            writer.append(String.format("PriorityQueue,%d,%d,%d,%d\n", priorityQueueAddExecTime, priorityQueueContainsExecTime, priorityQueueRemoveExecTime, priorityQueueClearExecTime));
+            writer.append(String.format("HashMap,%d,%d,%d,%d\n", hashMapAddExecTime, hashMapContainsExecTime, hashMapRemoveExecTime, hashMapClearExecTime));
+            writer.append(String.format("TreeMap,%d,%d,%d,%d\n", treeMapAddExecTime, treeMapContainsExecTime, treeMapRemoveExecTime, treeMapClearExecTime));
+            writer.append(String.format("LinkedHashMap,%d,%d,%d,%d\n", linkedHashMapAddExecTime, linkedHashMapContainsExecTime, linkedHashMapRemoveExecTime, linkedHashMapClearExecTime));
+            
+            System.out.println("Data exported to CSV file successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("An error occurred while writing to the CSV file.");
+        }
     
 
         }
